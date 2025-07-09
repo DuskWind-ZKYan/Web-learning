@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stats.stats>p span{
+            border-radius:3px;
+            padding-right:5px;
+            padding-left:5px;
+            color:white;
+        }
+        .stats>p span.success{
+            background-color:green;
+        }
+        .stats>p span.warning{
+            background-color:orange;
+        }
+        .stats table{
+            border-collapse:collapse;
+            width:100%;
+        }
+        .stats table tr{
+            text-align:center;
+            padding:10px;
+            border-bottom:1px solid #ddd;
+        }
+        .stats table th,.stats table td{
+            padding:10px;
+            border-bottom:1px solid #ddd;
+        }
+        .stats table>tbody tr:nth-child(odd){
+            background-color:#f2f2f2;
+        }
+        .stats table>tbody>tr button{
+            background-color:rgb(227,23,13);
+            border-radius:8px;
+            border:none;
+            width:40%;
+            padding:10px;
+        }
+        .stats table>tbody>tr button a{
+            color:white;
+            text-decoration: none;
+            width:100%;
+            font-size:1.2em;
+        }
+        .stats table>tbody>tr button:hover{
+            background-color: red;
+            box-shadow:0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+<body>
+<div class="stats">
+    <h3>学生信息</h3>
+    <p>
+        说明：以下为2046级学生名单，共4人,
+        <span class="success">成功加载3人</span>。
+        <span class="warning">警告：列表不包含降级学生</span>。
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>班级</th>
+            <th>email</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>郭立新</td>
+            <td>软件工程2046级1班</td>
+            <td>guo@example.com</td>
+            <td class="BT">
+                <button class="action" type="submit"><a href="">修改</a></button>
+                <button class="delete" type="button"><a href="">删除</a></button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>黄英</td>
+            <td>软件工程2046级1班</td>
+            <td>huang@example.com</td>
+            <td class="BT">
+                <button class="action" type="submit"><a href="">修改</a></button>
+                <button class="delete" type="button"><a href="">删除</a></button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>吕惠玲</td>
+            <td>软件工程2046级2班</td>
+            <td>lv@example.com</td>
+            <td class="BT">
+                <button class="action" type="submit"><a href="">修改</a></button>
+                <button class="delete" type="button"><a href="">删除</a></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

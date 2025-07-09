@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        .container {
+            margin: auto;
+            max-width: 960px;
+        }
+
+        .area {
+            padding: 10px;
+            border: 1px solid darkgray;
+            background-color: ghostwhite;
+            border-radius: 5px;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        ul.nav {
+            display: flex;
+            background: royalblue;
+            list-style: none;
+        }
+        a.nav-link {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            display: block;
+            padding: 15px 25px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+        }
+        li.logout{
+            margin-left: auto;
+        }
+        a.nav-link:hover{
+            background-color: cornflowerblue;
+            transform:translateY(-4px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        a.Logout:hover{
+            background-color: orangered;
+            transform:translateY(-4px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        a.nav-link:active{
+            background-color: deepskyblue;
+            transform:translateY(-2px);
+        }
+
+        .footer{
+            text-align: center;
+            background-color: royalblue;
+        }
+        .footer p{
+            color: lightgray;
+        }
+        .sidebar{
+            margin: 10px 0;
+        }
+        .sidebar-group {
+            background: aliceblue;
+            display: block;
+            width: 100%;
+        }
+        .sidebar-group .title{
+            text-align: center;
+            background: lightblue;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .sidebar-group .list{
+            list-style: none;
+            border-radius: 5px;
+        }
+        .sidebar-group .list .link{
+            text-decoration: none;
+            display: block;
+            color: black;
+            padding: 15px 25px;
+            transition: all 0.2s ease;
+            border-radius: 5px;
+            margin: 6px 0;
+        }
+        .sidebar-group .list .link:hover{
+            background-color: lightsteelblue;
+            transform: translateX(-2px) scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-group .list .link:active{
+            background-color: deepskyblue;
+            transform:translateX(-1px);
+        }
+        article{
+            width: 100%;
+            margin: 10px 0;
+        }
+        .col-md-1 {width: 8.33%;}
+        .col-md-2 {width: 16.67%;}
+        .col-md-3 {width: 25%;}
+        .col-md-4 {width: 33.33%;}
+        .col-md-5 {width: 41.67%;}
+        .col-md-6 {width: 50%;}
+        .col-md-7 {width: 58.33%;}
+        .col-md-8 {width: 66.67%;}
+        .col-md-9 {width: 75%;}
+        .col-md-10 {width: 83.33%;}
+        .col-md-11 {width: 91.67%;}
+        .col-md-12 {width: 100%;}
+    </style>
+</head>
+<body>
+<div class="container area">
+    <header>
+        <div class="row area col-md-12">
+            <ul class="nav col-md-12">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">News</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li class="logout"><a href="#" class="nav-link Logout">Logout</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="row">
+        <aside class="sidebar area col-md-3">
+            <div class="sidebar-group">
+                <h2 class="title">云技术管理</h2>
+                <ul class="list">
+                    <li><a href="#" class="link">云服务器</a></li>
+                    <li><a href="#" class="link">云数据库</a></li>
+                    <li><a href="#" class="link">负载均衡</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-group">
+                   <h2 class="title">安全管理</h2>
+                <ul class="list">
+                    <li><a href="#" class="link">云盾控制台</a></li>
+                    <li><a href="#" class="link">DDoS高防IP</a></li>
+                    <li><a href="#" class="link">Web应用防火墙</a></li>
+                    <li><a href="#" class="link">CA证书服务</a></li>
+                </ul>
+            </div>
+        </aside>
+        <article>
+            <div class="area col-md-12">
+                <h1>设计内容</h1>
+                <p>为各部分区域设计统一样式；全局取消元素内外边距，按box尺寸计算</p>
+                <h3>需求0</h3>
+                <p>基于当前HTML代码，按12栅格布局页面。Container根容器居中最大宽度960px；Row弹性行容器；
+                    header/footer各占1行12列；main中sidebar占3列；article占9列。</p>
+                <h3>上导航+1</h3>
+                <p>header中声明上导航，添加背景色/悬浮字体颜色等样式，且将logout推至最右侧</p>
+                <h3>页脚+1</h3>
+                <p>元素居中</p>
+                <h3>左侧边栏+1</h3>
+                <p>为左侧边栏添加样式，添加背景色/字体色/悬浮等等样式</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="footer area col-md-12">
+            <p>东北林业大学<br>
+                软件工程专业 2046&copy;</p>
+        </div>
+    </footer>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("h2.title").click(function(){
+            $(this).next().slideToggle();
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+    <div>
+        <h1>注册</h1>
+        <label>
+            <input type="checkbox" id="legal">
+            我已阅读相关说明并遵守相关法律
+        </label><br>
+        <form id="register" >
+            <label>
+                用户名：
+                <input type="text" name="username">
+            </label><br>
+            未来意向：
+            <label><input type="radio" name="future-plan" value="Java-E">Java工程师</label>
+            <label><input type="radio" name="future-plan" value="Text-E">测试工程师</label>
+            <label><input type="radio" name="future-plan" value="Web-E" >前端工程师</label>
+            <br><br>
+
+            <input type="hidden" name="FP">
+
+            请从以下课程中选择2项最喜欢的课程
+            <div>
+                <ul>
+                    <li><label><input type="checkbox" name="courses">Web开发技术   </label></li>
+                    <li><label><input type="checkbox" name="courses">软件项目管理  </label></li>
+                    <li><label><input type="checkbox" name="courses">数据库原理    </label></li>
+                    <li><label><input type="checkbox" name="courses">系统分析与设计</label></li>
+                </ul>
+            </div>
+
+            地址：
+            <ul id="ul_address"></ul>
+            <label><input type="text" name="address"></label>
+            <button type="button" name="add-address">添加地址</button><br>
+            <button type="submit" name="submit">提交</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const registerForm = $("form :input").prop("disabled",true);
+            let userNameValid = false;
+            let coursesValid = false;
+
+            $("#legal").click(function(){
+                const legalIf = $("#legal").prop("checked");
+                registerForm.not($("button:submit")).prop("disabled",!legalIf);
+                if(legalIf){checkBoxes();}
+            })
+            $("input[name=username]").change(function(){
+                if($(this).val().trim().length < 6){
+                    alert("用户名必须大于等于6个字符");
+                    userNameValid = false;
+                }else{
+                    userNameValid = true;
+                }
+            })
+
+            $("button[name=add-address]").click(function(){
+                const input = $("input[name=address]");
+                const item = $(`<li>
+                                <button type="button" name="deleteAddress">删除地址</button>
+                                ${input.val()}
+                                </li>`);
+                input.val("");
+                item.css("display","none");
+                $("#ul_address").append(item);
+                item.fadeIn(1000);
+            })
+
+            $("#ul_address").on("click", "button[name=deleteAddress]", function() {
+                $(this).parent().fadeOut(500, function() {
+                    $(this).remove();
+                });
+            });
+
+            const maxAmount = 2;
+            const checkboxes = $("input[name=courses]");
+            $(checkboxes).change(function(){
+                checkBoxes();
+            })
+            function checkBoxes(){
+                const checked = checkboxes.filter(":checked");
+                const unchecked = checkboxes.not(":checked");
+                coursesValid = checked.length >= maxAmount;
+                unchecked.prop("disabled",coursesValid);
+            }
+
+            $("input[name=username],input[name=courses]").change(function(){
+                const disableIf = coursesValid && userNameValid;
+                $("button[name=submit]").prop("disabled",!disableIf);
+            })
+
+            const futurePlan = $("input[name=future-plan]");
+            const FP = $("input[name=FP]");
+            $(futurePlan).click(function(){
+                if($(this).val() === FP.val()){
+                    FP.val("0");
+                    $(this).prop("checked", false);
+                }else{
+                    FP.val($(this).val());
+                }
+            })
+
+        });
+
+
+    </script>
+</body>
+</html>

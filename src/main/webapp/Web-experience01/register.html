@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form  action="/register" method="post">
+    <div>
+        <p>个人信息</p>
+        用户名:
+            <input type="text" name="username" required> <br>
+        密码  :
+            <input type="password" name="password" required> <br>
+        性别:
+            <label>
+                <input type="radio" name="gender">男
+            </label>
+            <label>
+                <input type="radio" name="gender">女
+            </label><br>
+        生日：
+            <input type="date" name="birthdate"> <br>
+        籍贯:
+            <input type="text" list="data">
+            <datalist id="data">
+                <option>area01</option>
+                <option>area02</option>
+                <option>area03</option>
+                <option>area04</option>
+            </datalist><br>
+        学历:
+            <select name="study level">
+                <option value="0"></option>
+                <option value="1" selected>学士</option>
+                <option value="2">硕士</option>
+                <option value="3">博士</option>
+            </select> <br>
+    </div>
+    <div>
+        <p>其他信息</p>
+        <p>喜欢的课程:</p>
+        <ul>
+            <li><label><input type="checkbox" name="Web" checked>Web开发技术</label></li>
+            <li><label><input type="checkbox" name="Java">Java程序设计</label></li>
+            <li><label><input type="checkbox" name="DataBase">数据库原理</label></li>
+            <li><label><input type="checkbox" name="System">系统分析与测试</label></li>
+        </ul>
+        照片：
+        <input type="file" name="picture" accept="image/*"> <br>
+    </div>
+    <button type="submit">提交</button>
+    <button type="reset">重置</button>
+</form>
+</body>
+</html>
