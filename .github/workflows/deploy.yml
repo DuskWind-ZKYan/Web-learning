@@ -28,5 +28,5 @@ jobs:
           username: ${{ secrets.TOMCAT_USERNAME }}
           password: ${{ secrets.TOMCAT_PASSWORD }}
           port: 22
-          source: "target/your-web-app.war"
+          source: "target/Web-experiences-1.0-SNAPSHOT.war"
           target: "/path/to/tomcat/webapps/"
